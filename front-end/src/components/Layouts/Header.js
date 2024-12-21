@@ -3,6 +3,7 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/logo/logo.png";
 import "../../styles/HeaderStyle.css";
+import {HashLink} from 'react-router-hash-link';
 
 const Header = () => {
   const [nav, setNav] = useState(false);
@@ -34,13 +35,16 @@ const Header = () => {
               <Nav.Link as={Link} to="/">
                 Home
               </Nav.Link>
-              <Nav.Link as={Link} to="/about">
-                About
-              </Nav.Link>
-              <Nav.Link as={Link} to="/menu">
+              <Nav.Link as={HashLink} to="#menu">
                 Our Menu
               </Nav.Link>
-              <Nav.Link as={Link} to="/contact">
+              <Nav.Link as={HashLink} to="#mobile">
+                Mobile App
+              </Nav.Link>
+              <Nav.Link as={HashLink} to="#review">
+                Review
+              </Nav.Link>
+              <Nav.Link as={HashLink} to="#contact">
                 Contact
               </Nav.Link>
               <Nav.Link as={Link} to="/">

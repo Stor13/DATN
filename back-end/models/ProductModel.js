@@ -1,7 +1,8 @@
 import { Sequelize, UUID } from "sequelize";
 import db from "../config/database";
+import Users from "./UserModel";
 const [dataType] = Sequelize;
-const Users = db.define('users',{
+const Products = db.define('users',{
     UUID:{
         type: dataType.STRING,
         defaultValue: dataType.UUIDV4,
@@ -10,7 +11,7 @@ const Users = db.define('users',{
             notEmpty: true, 
         }
     },
-    username:{
+    name:{
         type: dataType.STRING,
         allowNull: false,
         validate: {
@@ -18,35 +19,34 @@ const Users = db.define('users',{
             len: [3,100]
         }
     },
-    password:{
+    description:{
         type: dataType.STRING,
         allowNull: false,
         validate: {
             notEmpty: true, 
-            len: [3,20]
         }
     },
-    email:{
-        type: dataType.STRING,
+    price:{
+        type: dataType.FLOAT,
         allowNull: false,
         validate: {
             notEmpty: true, 
-            isEmail: true
         }
     },
-    role:{
-        type: dataType.STRING,
+    UID:{
+        type: dataType.INTEGER,
         allowNull: false,
         validate: {
             notEmpty: true, 
-            len: [3,20]
         }
     },
-
-
     
 },{
     freezeTableName: true
 })
 
-export default Users;
+Users.hasMany(Products);
+Products.belongsTo(Users, {foreignKey:'UID'});
+
+
+export default Products;

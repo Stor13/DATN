@@ -20,18 +20,27 @@ const Home = () => {
         <Section2 />
 
         {/* Home Section Menu */}
-        <Section3 />
+        <div id="menu">
+          <Section3 />
+        </div>
 
         {/* Home Section Promotion */}
 
         {/* Home Section Shop */}
-        <Section5 />
+        <div id="mobile">
+          <Section5 />
+        </div>
+          
 
         {/* Home Section Blog */}
-        <Section6 />
+        <div id="review">
+          <Section6 />  
+        </div>
 
         {/* Home Section Contact */}
-        <Section7 />
+        <div id="contact">
+          <Section7 />  
+        </div>
       </Layout>
     </>
   );
